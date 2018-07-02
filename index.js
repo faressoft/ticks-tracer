@@ -109,6 +109,44 @@ TicksTracer.prototype.getSnapshots = function() {
 };
 
 /**
+ * Get a list of snapshots that represent only the diffs
+ * 
+ * @return {Array}
+ */
+TicksTracer.prototype.getSnapshotsDiffs = function() {
+
+  var diffs = [];
+  var self = this;
+
+  self._snapshots.forEach(function(snapshot, index) {
+
+    var prevSnapshotKeys = null;
+    var diff = {};
+
+    if (index == 0) {
+      diffs.push(snapshot);
+      return;
+    }
+
+    prevSnapshotKeys = Object.keys(self._snapshots[index - 1]);
+
+    for (var key in self._snapshots[index]) {
+    
+      if (prevSnapshotKeys.indexOf(key) == -1) {
+        diff[key] = self._snapshots[index][key];
+      }
+    
+    }
+
+    diffs.push(diff);
+    
+  });
+
+  return diffs;
+  
+};
+
+/**
  * Stop tracing
  * 
  * @return {Object}

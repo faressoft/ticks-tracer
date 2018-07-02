@@ -56,6 +56,7 @@ flow.run(context).then(function(result) {
 
   // Get the taken snapshots
   console.log(ticksTracer.getSnapshots());
+  console.log(ticksTracer.getSnapshotsDiffs());
 
   // Stop the tracing
   ticksTracer.stop();
@@ -65,7 +66,7 @@ flow.run(context).then(function(result) {
 // Don't worry about this
 function generateDummyTask(id) {
   
-  return function name(context, callback) {
+  return function(context, callback) {
     context['task' + id] = true;
     setImmediate(callback);
   };
@@ -98,6 +99,8 @@ The output is:
 <dd><p>Get a taken snapshot by a tick number</p></dd>
 <dt><a href="#getSnapshots">getSnapshots()</a> ⇒ <code>Array</code></dt>
 <dd><p>Get all taken snapshots indexed by ticks numbers</p></dd>
+<dt><a href="#getSnapshotsDiffs">getSnapshotsDiffs()</a> ⇒ <code>Array</code></dt>
+<dd><p>Get a list of snapshots that represent only the diffs</p></dd>
 </dl>
 
 <a name="constructor"></a>
@@ -135,6 +138,12 @@ Get a taken snapshot by a tick number.
 ## getSnapshots() ⇒ <code>Array</code>
 
 Get all taken snapshots indexed by ticks numbers.
+
+**Returns**: <code>Array</code>
+
+## getSnapshotsDiffs() ⇒ <code>Array</code>
+
+Get a list of snapshots that represent only the diffs
 
 **Returns**: <code>Array</code>
 
