@@ -1,0 +1,34 @@
+{
+  "name": "ticks-tracer",
+  "version": "1.0.0",
+  "description": "takes snapshots for an object across event loop ticks",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/faressoft/ticks-tracer.git"
+  },
+  "keywords": [
+    "test",
+    "setImmediate",
+    "snapshot",
+    "trace",
+    "unit",
+    "tick",
+    "process",
+    "nextTick",
+    "timer",
+    "fake",
+    "chai",
+    "mocha",
+    "control",
+    "flow",
+    "async",
+    "promise",
+    "debug"
+  ],
+  "author": "Mohammad Fares <faressoft.com@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "deepcopy": "^1.0.0"
+  }
+}
