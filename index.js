@@ -120,7 +120,8 @@ TicksTracer.prototype.getSnapshotsDiffs = function() {
 
   self._snapshots.forEach(function(snapshot, index) {
 
-    var prevSnapshotKeys = null;
+    var prevSnapshot = null;
+    var currentSnapshot = self._snapshots[index];
     var diff = {};
 
     if (index == 0) {
@@ -128,12 +129,12 @@ TicksTracer.prototype.getSnapshotsDiffs = function() {
       return;
     }
 
-    prevSnapshotKeys = Object.keys(self._snapshots[index - 1]);
+    prevSnapshot = self._snapshots[index - 1];
 
-    for (var key in self._snapshots[index]) {
-    
-      if (prevSnapshotKeys.indexOf(key) == -1) {
-        diff[key] = self._snapshots[index][key];
+    for (var key in currentSnapshot) {
+
+      if (!(key in prevSnapshot) || prevSnapshot[key] != currentSnapshot[key]) {
+        diff[key] = currentSnapshot[key];
       }
     
     }
