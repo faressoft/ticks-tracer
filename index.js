@@ -5,7 +5,7 @@
  * @author Mohammad Fares <faressoft.com@gmail.com>
  */
 
-var deepcopy = require('deepcopy');
+var clone = require('clone');
 
 /**
  * Ticks Tracer
@@ -48,7 +48,7 @@ function TicksTracer(tracedObject) {
  */
 TicksTracer.prototype._takeSnapshot = function() {
 
-  this._snapshots[this._ticksCounter] = deepcopy(this._tracedObject);
+  this._snapshots[this._ticksCounter] = clone(this._tracedObject);
   
 };
 

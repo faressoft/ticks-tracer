@@ -29,6 +29,6 @@
   "author": "Mohammad Fares <faressoft.com@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "deepcopy": "^1.0.0"
+    "clone": "^2.1.1"
   }
 }
