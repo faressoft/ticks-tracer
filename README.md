@@ -37,7 +37,7 @@ var context = {};
 
 // A dummy flow
 var flow = new Flowa({
-  type: 'series',
+  type: 'serial',
   task1: generateDummyTask(1),
   task2: generateDummyTask(2),
   group1: {
