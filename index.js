@@ -53,6 +53,15 @@ TicksTracer.prototype._takeSnapshot = function() {
 };
 
 /**
+ * Update the last taken snapshot for the traced object
+ */
+TicksTracer.prototype._updateLastSnapshot = function() {
+
+  this._snapshots[this._snapshots.length - 1] = clone(this._tracedObject);
+  
+};
+
+/**
  * Start tracing
  *
  * - Keeps calling itself after each event loop tick.
@@ -155,6 +164,7 @@ TicksTracer.prototype.getSnapshotsDiffs = function() {
 TicksTracer.prototype.stop = function() {
 
   this._isStopped = true;
+  this._updateLastSnapshot();
   
 };
 
