@@ -1,6 +1,6 @@
 {
   "name": "ticks-tracer",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "description": "takes snapshots for an object across event loop ticks",
   "main": "index.js",
   "repository": {
